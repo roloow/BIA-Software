@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="modelos_isw" version="4">
+  <OBJECT>
+    <ID name="modelos_isw" mc="Standard.Package" uid="b2dbc392-8154-4658-983e-fc9674031e30"/>
+    <PID name="Modelos_ISW" mc="Standard.Project" uid="dbd80ceb-4170-4c0b-8574-eaf7b3537ffa"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[modelos_isw]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="State Machine" mc="Standard.StateMachine" uid="88695289-5931-4c1a-80c1-1b0261d1fab4"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Usuario Común" mc="Standard.Actor" uid="c800f372-700c-4378-b3a6-5abb7869d314"/>
+        <COMPID name="Ingresar a la plataforma" mc="Standard.UseCase" uid="8e97a2a1-5586-4752-be16-8d120853fd02"/>
+        <COMPID name="Registro" mc="Standard.UseCase" uid="9470e3d6-5f71-45ff-a1eb-41f2776ba71f"/>
+        <COMPID name="Clasificar material" mc="Standard.UseCase" uid="99c4bc7b-6d7c-469a-84a6-b80d8b013434"/>
+        <COMPID name="Agregar etiquetas" mc="Standard.UseCase" uid="ac024cca-2a36-4a8f-8406-43f065a95032"/>
+        <COMPID name="Usuario AdministradorExperto" mc="Standard.Actor" uid="22dc5a73-8dce-4089-9cbc-badd5d42e8ba"/>
+        <COMPID name="Usuario Administrador Profesor" mc="Standard.Actor" uid="c77edc8d-a209-47ce-9e46-e1c3d6bc1de9"/>
+        <COMPID name="Usuario Comun" mc="Standard.Class" uid="7a710929-0093-43ca-8831-4f8cafe98c4c"/>
+        <COMPID name="Perfil Kolb" mc="Standard.Class" uid="341f0143-04b2-4feb-abdb-e4d00d7de5da"/>
+        <COMPID name="Material" mc="Standard.Class" uid="24abe991-f5ec-4c7f-ad2b-15f6ba832fab"/>
+        <COMPID name="Etiquetas" mc="Standard.Class" uid="00c92bb4-5bbd-4746-bc85-172e3da3b292"/>
+        <COMPID name="Usuario Admininstrador" mc="Standard.Class" uid="805e415f-6469-40df-b947-ff1f4558119b"/>
+        <COMPID name="Agregar Material" mc="Standard.UseCase" uid="9a2dec97-e77f-4992-b767-1e10a1991b3d"/>
+        <COMPID name="Calificar Material" mc="Standard.UseCase" uid="d5aa064d-7c3b-40d1-8d59-c5823dd72671"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="modelos_isw Use Case diagram" mc="Standard.UseCaseDiagram" uid="0514f25f-8ad0-41cd-a815-7d2b15fc1209"/>
+        <COMPID name="modelos_isw Class diagram" mc="Standard.ClassDiagram" uid="0f22a134-e0ac-4099-88c0-79fbfb186dc8"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
