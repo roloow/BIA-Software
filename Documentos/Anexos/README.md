@@ -1,3 +1,5 @@
+Esta es una previsualización utilizando [notedown](https://github.com/aaren/notedown), para poder ver el correcto renderizado de este documento, solo abra el archivo de Análisis.
+
 Análisis de Redes FF e implementación básica
 -----
 Prototipo funcional de una red que predice un DataSet de semillas en base a una
