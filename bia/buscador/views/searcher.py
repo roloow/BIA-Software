@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 from .common import get_base_context
+from django.shortcuts import render
 
 
 def home(request):
