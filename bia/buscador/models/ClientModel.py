@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class ClientModel(models.Model):
     active = models.BooleanField(default=False, help_text="Indica que el usuario validó su correo")
     auth_user = models.OneToOneField(User, related_name="profile")
-    kolb_profile = models.ForeignKey('KolbModel', related_name="clients")
+    kolb_profile = models.ForeignKey('KolbModel', related_name="clients", null=True, blank=True)
 
     @property
     def full_name(self):
