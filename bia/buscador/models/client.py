@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class ClientModel(models.Model):
-    active = models.BooleanField(default=False, help_text="Indica que el usuario validó su correo")
+    active = models.BooleanField(default=False, help_text="Indica que el usuario valido su correo")
     auth_user = models.OneToOneField(User, related_name="profile")
     kolb_profile = models.ForeignKey('KolbModel', related_name="clients")
 
