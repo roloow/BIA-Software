@@ -51,7 +51,6 @@ def kolb_form(request):
     context = get_base_context(request)
     client_id = request.GET.get("client_id", False)
     context['client_id'] = client_id
-    print request.user.profile.pk, client_id
     if request.user.profile.pk != int(client_id):
         # TODO: PAGE 404 - User cannot do someone elses KolbForm
         return render(request, 'buscador/home.html', context)
