@@ -10,3 +10,8 @@ def home(request):
     """
     context = get_base_context(request)
     return render(request, 'buscador/home.html', context)
+
+
+def building(request):
+    context = get_base_context(request)
+    return render(request, 'buscador/building.html', context)

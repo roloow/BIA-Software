@@ -22,6 +22,12 @@ def login_method(request):
         context['error'] = True
         return render(request, 'buscador/user_login.html', context)
 
+# logout
+def logout_method(request):
+    logout(request)
+    return redirect('buscador:home')
+
+
 # Register
 def register(request):
     context = get_base_context(request)

@@ -5,5 +5,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'signin$', views.login_method, name='login'),
     url(r'signup$', views.register, name='register'),
+    url(r'logout$', views.logout_method, name='logout'),
     url(r'kolbform$', views.kolb_form, name='kolb'),
+    url(r'building$', views.building, name='building'),
 ]
