@@ -59,7 +59,7 @@ Los usuarios son creados de manera genérica mediante el servicio web y estos to
 (CARPET) :CarpetaDestino\BIA> python manage.py moderator --email name@email.com
 ```
 
-### Comandos
+## Comandos
 
 #### Kolb
  Este comando está diseñado para crear los perfiles cognitivos de la aplicación. Es completamente imperativo la utilización de este comando en sistemas nuevos dado que el funcionamiento del servicio y la creación de los usuarios depende de esto. El comando cuenta con dos funcionalidades *start* y *new*.
@@ -92,7 +92,7 @@ Este comando está diseñado para crear usuarios con capacidad de moderador, est
 Equivale a entregar el correo del usuario el cual será también su nombre de usuario. Datos como nombre y apellidos pueden (como no) ser entregado vía consola.
 ```
 (CARPET) :CarpetaDestino\BIA> python manage.py moderator --email example@email.com
-(CARPET) :CarpetaDestino\BIA> python manage.py kolb -e example@email.com
+(CARPET) :CarpetaDestino\BIA> python manage.py moderator -e example@email.com
 ```
 * **help**
 
