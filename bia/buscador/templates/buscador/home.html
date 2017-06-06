@@ -3,7 +3,7 @@
 {% block content %}
 <div class="note note-info">
   <h4 class="block">Contenidos en desarrollo</h4>
-  <p>Hola {{ request.user }}, <br>
+  <p>Hola {{ request.user.profile.full_name }}, <br>
     En esta plataforma usted podrá buscar materiales los cuales se le presentarán en base a su perfil cognitivo. Utilice las funcionalidades activas para desplazarse por el sistema.
     <br>Prontamente se agregarán algunas funcionalidades tales como:
     <br>  - Nombre de Usuario personalizado
