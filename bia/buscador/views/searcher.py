@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from .common import get_base_context
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
