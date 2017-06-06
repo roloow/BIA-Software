@@ -18,6 +18,9 @@ class Command(BaseCommand):
             if '@' not in email:
                 print 'ERROR: email not found.'
                 return None
+            if ClientModel.objects.filter(auth_user__email=email):
+                print 'A user with that email, already exists. In next releases, we will allowed to upgrade a Client to Moderator.'
+                return None
             first_name = 'default first name'
             last_name = 'default last name'
             validation = str(raw_input('Do you want to specify all attributes for the user? (y/n)\nNOTE: This action may be done after creating in the plataform.\n'))
@@ -38,6 +41,7 @@ class Command(BaseCommand):
                 client = ClientModel()
                 client.auth_user = user
                 client.active = True
+                client.is_moderator = True
                 client.save()
                 print 'Client Successfully created.'
                 return None
