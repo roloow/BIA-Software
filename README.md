@@ -41,7 +41,6 @@ Habiendo realizado esto podemos proceder a los ajustes iniciales de la aplicaci�
 (CARPET) :CarpetaDestino\BIA> python manage.py makemigrations
 (CARPET) :CarpetaDestino\BIA> python manage.py migrate
 (CARPET) :CarpetaDestino\BIA> python manage.py kolb --start
-(CARPET) :CarpetaDestino\BIA> python manage.py runserver
 ```
 
 Si por algún motivo llegase a generarse un error sobre la base de datos o migraciones, se aconseja la eliminación de las carpetas "migrations" de cada sub-aplicación además de eliminar la base de datos (sqlite) y luego proceder a realizar los pasos anteriores. Si no se crean las carpetas de las sub-aplicaciones, usted puede realizar una migración particular. Notese que **app** es equivalente a **[buscador]** y **[administración]**.
@@ -57,6 +56,13 @@ Los usuarios son creados de manera genérica mediante el servicio web y estos to
 
 ```
 (CARPET) :CarpetaDestino\BIA> python manage.py moderator --email name@email.com
+```
+
+## Servidor
+
+El servidor, una vez realizadas las configuraciones anteriores debe ser corrido mediante runserver quien puede obtener como parametro el puerto que se desee abrir para correr el sistema o utilizará el puero 8000 por defecto
+```
+(CARPET) :CarpetaDestino\BIA> python manage.py runserver
 ```
 
 ## Comandos
