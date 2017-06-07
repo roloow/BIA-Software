@@ -40,14 +40,20 @@ Habiendo realizado esto podemos proceder a los ajustes iniciales de la aplicaci�
 (CARPET) :CarpetaDestino> cd BIA
 (CARPET) :CarpetaDestino\BIA> python manage.py makemigrations
 (CARPET) :CarpetaDestino\BIA> python manage.py migrate
-(CARPET) :CarpetaDestino\BIA> python manage.py kolb --start
 ```
 
-Si por algún motivo llegase a generarse un error sobre la base de datos o migraciones, se aconseja la eliminación de las carpetas "migrations" de cada sub-aplicación además de eliminar la base de datos (sqlite) y luego proceder a realizar los pasos anteriores. Si no se crean las carpetas de las sub-aplicaciones, usted puede realizar una migración particular. Notese que **app** es equivalente a **[buscador]** y **[administración]**.
+**Si no se crean las carpetas** de las sub-aplicaciones con nombre *migrations*, usted puede realizar una migración particular. Notese que **app** es equivalente a **[buscador]** y **[administración]**.
 
 ```
 (CARPET) :CarpetaDestino\BIA> python manage.py makemigrations app
 (CARPET) :CarpetaDestino\BIA> python manage.py migrate
+```
+
+Si por algún motivo llegase a generarse un error sobre la base de datos o migraciones, se aconseja la eliminación de las carpetas "migrations" de cada sub-aplicación además de eliminar la base de datos (sqlite) y luego proceder a realizar los pasos anteriores.
+
+Finalmente cree los perfiles cognitivos
+```
+(CARPET) :CarpetaDestino\BIA> python manage.py kolb --start
 ```
 
 ### Usuarios
