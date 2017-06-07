@@ -1,0 +1,248 @@
+{% extends "buscador/base_page.html" %}
+{% load static %}
+{% block title %}Búsqueda de Información Autómatica{% endblock %}
+{% block breadcrumb %}Perfil de Usuario > {{client.full_name}}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet ">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="{% static 'buscador/layouts/layout/img/avatar.png' %}" class="img-responsive" alt=""> </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name"> {{client.full_name}} </div>
+                    <div class="profile-usertitle-job"> {% if client.is_moderator %}Moderador{% else %}Usuario común{% endif %} </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                  {% if my_profile %}
+                    <a href="{% url 'buscador:building' %}" type="button" class="btn btn-circle blue btn-sm">Bandeja de mensaje</a>
+                  {% else %}
+                    <a href="{% url 'buscador:building' %}" type="button" class="btn btn-circle red btn-sm">Enviar un mensajes</a>
+                  {% endif %}
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="{% url 'buscador:profile' client.pk %}">
+                                <i class="icon-home"></i> Resumen </a>
+                        </li>
+                        {% if my_profile %}
+                        <li>
+                            <a href="{% url 'buscador:building' %}">
+                                <i class="icon-settings"></i> Editar cuenta </a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{% url 'buscador:building' %}">
+                                <i class="icon-info"></i> Ayuda </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light ">
+                <!-- STAT -->
+                <center>PRÓXIMAMENTE<br>Resumen de actividad</center>
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <!-- TODO: Resumen real -->
+                        <div class="uppercase profile-stat-title"> 1203 </div>
+                        <div class="uppercase profile-stat-text"> Búsquedas </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="uppercase profile-stat-title"> 719 </div>
+                        <div class="uppercase profile-stat-text"> Calificaciones </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+            </div>
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- BEGIN PORTLET -->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="icon-bar-chart theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase">Información personal</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                          <div class="table-scrollable table-scrollable-borderless">
+                              <table class="table table-hover table-light">
+                                  <tr>
+                                      <td class="text-right">
+                                        <b>Nombre:</b>
+                                      </td>
+                                      <td> {{client.first_name}} </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-right">
+                                        <b>Apellido:</b>
+                                      </td>
+                                      <td> {{client.last_name}} </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-right" colspan="">
+                                        <b>Perfil cognitivo:</b>
+                                      </td>
+                                      <td>
+                                        {% if client.kolb_profile %}
+                                          {{client.kolb_profile.nombre}}
+                                        {% else %}
+                                          Encuesta pendiente
+                                        {% endif %}
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="text-right">
+                                        <b>Tipo Usuario:</b>
+                                      </td>
+                                      <td>
+                                        {% if client.is_moderator %} Moderador {%else%} Usuario común{% endif %}
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td >
+                                      </td>
+                                      <td>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END PORTLET -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- BEGIN PORTLET -->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="icon-bar-chart theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase">Actividad (SOON)</span>
+                            </div>
+                            <div class="actions">
+                                <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                        <input type="radio" name="options" class="toggle" id="option1">Hoy</label>
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                        <input type="radio" name="options" class="toggle" id="option2">Semana</label>
+                                    <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                        <input type="radio" name="options" class="toggle" id="option2">Mes</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row number-stats margin-bottom-30">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="stat-left">
+                                        <div class="stat-chart">
+                                            <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                            <div id="sparkline_bar"></div>
+                                        </div>
+                                        <div class="stat-number">
+                                            <div class="title"> Búsquedas </div>
+                                            <div class="number"> 1203 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="stat-right">
+                                        <div class="stat-chart">
+                                            <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                            <div id="sparkline_bar2"></div>
+                                        </div>
+                                        <div class="stat-number">
+                                            <div class="title"> Calificaciones </div>
+                                            <div class="number"> 719 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-scrollable table-scrollable-borderless">
+                                <table class="table table-hover table-light">
+                                    <thead>
+                                        <tr class="uppercase">
+                                            <th colspan="2"> BÚSQUEDA </th>
+                                            <th> RESULTADOS </th>
+                                            <th> CALIFICADO </th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="fit">
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'buscador:building' %}" class="primary-link">Efecto Fotoeléctrico</a>
+                                        </td>
+                                        <td> 12 </td>
+                                        <td> NO </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fit">
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'buscador:building' %}" class="primary-link">Efecto Comptom</a>
+                                        </td>
+                                        <td> 3 </td>
+                                        <td> NO </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fit">
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'buscador:building' %}" class="primary-link">Campo eléctrico</a>
+                                        </td>
+                                        <td> 102 </td>
+                                        <td> NO </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fit">
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'buscador:building' %}" class="primary-link">Campo Magnético</a>
+                                        </td>
+                                        <td> 31 </td>
+                                        <td> SI </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PORTLET -->
+                </div>
+            </div>
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div>
+{% endblock %}
+{% block plugin_js %}
+<script src="{% static 'buscador/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js'%}" type="text/javascript"></script>
+<script src="{% static 'buscador/global/plugins/jquery.sparkline.min.js'%}" type="text/javascript"></script>
+<script src="{% static 'buscador/global/plugins/gmaps/gmaps.min.js'%}" type="text/javascript"></script>
+<script src="{% static 'buscador/layouts/global/scripts/quick-nav.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'buscador/pages/scripts/profile.min.js'%}" type="text/javascript"></script>
+<script src="{% static 'buscador/pages/scripts/timeline.min.js'%}" type="text/javascript"></script>
+{% endblock %}
+{% block plugin_css %}
+<link href="{% static 'buscador/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'buscador/pages/css/profile.min.css'%}" rel="stylesheet" type="text/css" />
+{% endblock %}

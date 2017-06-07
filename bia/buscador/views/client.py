@@ -74,3 +74,13 @@ def kolb_form(request):
         client.kolb_profile = kp
         client.save()
         return render(request, 'buscador/home.html', context)
+
+@login_required
+def user_profile(request, client_id):
+    context = get_base_context(request)
+    context['my_profile'] = False
+    if request.user.profile.pk == int(client_id):
+        context['my_profile'] = True
+    client = ClientModel.objects.get(pk=client_id)
+    context['client'] = client
+    return render(request, 'buscador/user_profile.html', context)
