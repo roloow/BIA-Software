@@ -45,6 +45,7 @@ class Command(BaseCommand):
                 perfil2.save()
                 perfil3.save()
                 perfil4.save()
+                print 'Se han agregado correctamente los perfiles.'
                 return None
             if validation == 'n':
                 print 'Action was canceled.'

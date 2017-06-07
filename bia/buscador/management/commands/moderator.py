@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from django.contrib.auth.models import User
 from buscador.models import ClientModel
-from getpass import getpass
+import getpass
 
 class Command(BaseCommand):
     help = 'This command generates a moderator profile user'
@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('-e', '--email', dest='email', type=str, help='The email which is going to be set as log in name.')
 
-    def handler(self, *args, **options):
+    def handle(self, *args, **options):
         # python manage.py moderator -e nombre@email.com
         if options['email']:
             email = options['email']
@@ -29,10 +29,11 @@ class Command(BaseCommand):
                 last_name = str(raw_input('Last name: '))
             if validation.lower() == 'n':
                 print 'The default values are going to be use.'
-            else:
+            if validation.lower() != 'n' and validation.lower() != 'y':
+
                 return None
-            pw = getpass('Enter password: ')
-            pw2 = getpass('Repeat password: ')
+            pw = getpass.getpass()
+            pw2 = getpass.getpass('Repeat password: ')
             if pw == pw2:
                 user = User.objects.create_user(email, email, pw)
                 user.first_name = first_name
