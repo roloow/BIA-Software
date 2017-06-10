@@ -1,0 +1,36 @@
+{% extends "administracion/base_wrapper.html" %}
+{% block wrapper %}
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h1 class="page-title"> {% block title %}Página Sin Título{% endblock %}
+  <small>{% block subtitle %}{% endblock %}</small>
+</h1>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="{% url 'buscador:home' %}">Inicio</a>
+      <i class="fa fa-angle-right"></i>
+    </li>
+    {% block breadcrumb %}{% endblock %}
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      {% block page_actions %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+  <!-- END PAGE BAR -->
+  <!-- END PAGE HEADER-->
+  &nbsp;
+  {% block content %}
+  <div class="note note-info">
+    <h4 class="block">Contenido indefinido</h4>
+    <p>No has definido el contenido de esta página y por lo tanto verás este mensaje hasta que se establezca.</p>
+  </div>
+  {% endblock %}
+</div>
+<!-- END CONTENT BODY -->
+{% endblock %}

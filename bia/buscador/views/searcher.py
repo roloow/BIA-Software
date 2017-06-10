@@ -11,7 +11,15 @@ def home(request):
     context = get_base_context(request)
     return render(request, 'buscador/home.html', context)
 
-
 def building(request):
     context = get_base_context(request)
     return render(request, 'buscador/building.html', context)
+
+def search_home(request):
+    context= get_base_context(request)
+    if request.method == "GET":
+        return render(request, 'buscador/search.html', context)
+    if request.method == "POST":
+        # TODO: Busqueda y filtro
+        context['results'] = True
+        return render(request, 'buscador/search.html', context)
