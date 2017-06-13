@@ -50,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="shortcut icon" href="static/buscador/favicon.ico" /> </head>
     <!-- END HEAD -->
 
-    <body class=" login">
+<body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="{% url 'buscador:home' %}">
@@ -61,22 +61,956 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="content">
             <!-- BEGIN REGISTRATION FORM -->
             <form class="login-form" action="{% url 'buscador:kolb' %}?client_id={{client_id}}" method="post">{% csrf_token %}
-                <h3>Perfil de Kolb <span class="icon-close pull-right exit"></span></h3>
+                <h3>Perfil de Kolb <a class="icon-close pull-right exit" href="{% url 'buscador:home' %}" type="button">
+                </a>
+                </h3>
                 {% if error %}
                 <div class="alert alert-danger">
                   <button class="close" data-close="alert"></button>
                   <span> Debes contestar todas las preguntas </span>
                 </div>
                 {% endif %}
+                <!-- Preg 1 -->
                 <div class="form-group">
-                    <label class="control-label">¿A qué perfil perteneces?</label>
-                    <div class="input-icon">
-                        <input type="radio" name="q1" value="Acomodador"> Acomodador <br>
-                        <input type="radio" name="q1" value="Convergente"> Convergente <br>
-                        <input type="radio" name="q1" value="Divergente"> Divergente <br>
-                        <input type="radio" name="q1" value="Asimilador"> Asimilador <br>
+                    <label class="control-label">Cuando aprendo...</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p1" value="p1" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta vivir sensaciones</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q11" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q11" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q11" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q11" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta pensar sobre ideas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q12" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q12" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q12" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q12" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+
+<td style="width: 49%">- Me gusta estar haciendo cosas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q13" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q13" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q13" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q13" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta observar y escuchar</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q14" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q14" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q14" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q14" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                <!-- Preg 2 -->
+                <div class="form-group" >
+                    <label class="control-label">Aprendo mejor cuando:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p2" value="p2" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Escucho y observo cuidadosamente</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q21" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q21" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q21" value="3">
+                                </td>
+
+<td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q21" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Confío en el pensamiento lógico</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q22" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q22" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q22" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q22" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Confío en mi intuición y sentimientos</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q23" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q23" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q23" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q23" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Trabajo duro para lograr hacer las cosas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q24" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q24" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q24" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q24" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 3 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando estoy aprendiendo:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+
+<td style="width: 49%"><input type="radio" name="p3" value="p3" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Tiendo a usar el razonamiento</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q31" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q31" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q31" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q31" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy responsable con lo que hago</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q32" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q32" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q32" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q32" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy callado y reservado</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q33" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q33" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q33" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q33" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Tengo fuertes sensacinoes y reacciones</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+
+<input type="radio" name="Q34" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q34" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q34" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q34" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                               <!-- Preg 4 -->
+               <div class="form-group" >
+                    <label class="control-label">Yo aprendo:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p4" value="p4" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Sintiendo</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q41" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q41" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q41" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q41" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Haciendo</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q42" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q42" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q42" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q42" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+
+<td style="width: 49%">- Observando</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q43" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q43" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q43" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q43" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Pensando</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q44" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q44" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q44" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q44" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 5 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando aprendo...</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p5" value="p5" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Estoy abierto a nuevas experiencias</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q51" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q51" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q51" value="3">
+                                </td>
+
+<td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q51" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Observo todos los aspectos del asunto</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q52" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q52" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q52" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q52" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta analizar las cosas y descomponerlas en sus partes</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q53" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q53" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q53" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q53" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta probar e intentar hacer las cosas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q54" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q54" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q54" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q54" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 6 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando estoy aprendiendo</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+
+<td style="width: 49%"><input type="radio" name="p6" value="p6" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona observadora</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q61" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q61" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q61" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q61" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona activa</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q62" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q62" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q62" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q62" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona intuitiva</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q63" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q63" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q63" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q63" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona lógica</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+
+<input type="radio" name="Q64" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q64" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q64" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q64" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 7 -->
+                <div class="form-group" >
+                    <label class="control-label">Yo aprendo mejor de:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p7" value="p7" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- La observación</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q71" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q71" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q71" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q71" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- La relación con otras personas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q72" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q72" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q72" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q72" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+
+<td style="width: 49%">- Las teorías relacionales</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q73" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q73" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q73" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q73" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- La oportunidad de probar y practicar</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q74" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q74" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q74" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q74" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 8 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando aprendo...</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p8" value="p8" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta ver los resultados de mi trabajo</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q81" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q81" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q81" value="3">
+                                </td>
+
+<td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q81" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gustan las ideas y las teorías</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q82" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q82" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q82" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q82" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me tomo mi tiempo antes de actuar</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q83" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q83" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q83" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q83" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me siento personalmente involucrado en las cosas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q84" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q84" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q84" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q84" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 9 -->
+                <div class="form-group" >
+                    <label class="control-label">Aprendo mejor cuándo:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+
+<td style="width: 49%"><input type="radio" name="p9" value="p9" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Confío en mis observaciones</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q91" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q91" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q91" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q91" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Confío en mis sentimientos</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q92" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q92" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q92" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q92" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Puedo probar por mi cuenta</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q93" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q93" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q93" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q93" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Confío en mis ideas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+
+<input type="radio" name="Q94" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q94" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q94" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q94" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 10 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando estoy aprendiendo:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p10" value="p10" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona reservada</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q101" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q101" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q101" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q101" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona receptiva</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q102" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q102" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q102" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q102" value="4">
+                                </td>
+                                </tr>
+
+<tr>
+                                <td style="width: 49%">- Soy una persona responsable</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q103" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q103" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q103" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q103" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy una persona racional</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q104" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q104" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q104" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q104" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 11 -->
+                <div class="form-group" >
+                    <label class="control-label">Cuando aprendo...</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p11" value="p11" checked="checked" style="visibility: hidden;"></td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me involucro</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q111" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q111" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q111" value="3">
+                                </td>
+
+<td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q111" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta observar</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q112" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q112" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q112" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q112" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Evalúo las cosas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q113" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q113" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q113" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q113" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Me gusta ser activo</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q114" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q114" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q114" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q114" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preg 12 -->
+                <div class="form-group" >
+                    <label class="control-label">Aprendo mejor cuándo:</label>
+                    <div class="form-group">
+                        <div class="qn-answer">
+                            <table class="individual" border="0" cellspacing="1" cellpadding="0" style="width:99.9%">
+                                <tr>
+                                <td style="width: 49%"><input type="radio" name="p12" value="p12" checked="checked" style="visibility: hidden;"></td>
+
+<td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">1</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">2</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">3</td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">4</td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Analizo ideas</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q121" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q121" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q121" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q121" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy receptivo y abierto</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q122" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q122" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q122" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q122" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy cuidadoso</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q123" value="1">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q123" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q123" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q123" value="4">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td style="width: 49%">- Soy práctico</td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext" id="yui_3_17_2_1_1496862467219_115">
+                                    <input type="radio" name="Q124" value="1">
+                                </td>
+
+<td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q124" value="2">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c0 smalltext">
+                                    <input type="radio" name="Q124" value="3">
+                                </td>
+                                <td style="width:12.5%; text-align:center" class="c1 smalltext">
+                                    <input type="radio" name="Q124" value="4">
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-actions">
                     <a href="{% url 'buscador:home' %}" type="button" class="btn red btn-outline"> Omitir </a>
                     <button type="submit" class="btn green pull-right"> Finalizar encuesta </button>

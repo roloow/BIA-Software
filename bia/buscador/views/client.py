@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from .common import get_base_context
+from .common import get_base_context, get_resp_preg, calificar_kolb
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -57,23 +57,44 @@ def kolb_form(request):
     context = get_base_context(request)
     client_id = request.GET.get("client_id", False)
     context['client_id'] = client_id
+    porc = [0,0,0,0]
     if request.user.profile.pk != int(client_id):
         # TODO: PAGE 404 - User cannot do someone elses KolbForm
         return render(request, 'buscador/home.html', context)
     if request.method == 'GET':
         return render(request, 'buscador/kolb_form.html', context)
     if request.method == 'POST':
-        # TODO: Mejorar comportamiento
-        if 'q1' not in request.POST.keys():
-            context['error'] = True
-            return render(request, 'buscador/kolb_form.html', context)
-        kolb_profile = request.POST['q1']
+        if request.POST['p1'] == 'p1':
+            porc = map(sum, zip(porc, get_resp_preg('1', request, context)))
+        if request.POST['p2'] == 'p2':
+            porc = map(sum, zip(porc, get_resp_preg('2', request, context)))
+        if request.POST['p3'] == 'p3':
+            porc = map(sum, zip(porc, get_resp_preg('3', request, context)))
+        if request.POST['p4'] == 'p4':
+            porc = map(sum, zip(porc, get_resp_preg('4', request, context)))
+        if request.POST['p5'] == 'p5':
+            porc = map(sum, zip(porc, get_resp_preg('5', request, context)))
+        if request.POST['p6'] == 'p6':
+            porc = map(sum, zip(porc, get_resp_preg('6', request, context)))
+        if request.POST['p7'] == 'p7':
+            porc = map(sum, zip(porc, get_resp_preg('7', request, context)))
+        if request.POST['p8'] == 'p8':
+            porc = map(sum, zip(porc, get_resp_preg('8', request, context)))
+        if request.POST['p9'] == 'p9':
+            porc = map(sum, zip(porc, get_resp_preg('9', request, context)))
+        if request.POST['p10'] == 'p10':
+            porc = map(sum, zip(porc, get_resp_preg('10', request, context)))
+        if request.POST['p11'] == 'p11':
+            porc = map(sum, zip(porc, get_resp_preg('11', request, context)))
+        if request.POST['p12'] == 'p12':
+            porc = map(sum, zip(porc, get_resp_preg('12', request, context)))
         # TODO: Analizador de respuestas
-        kp = KolbModel.objects.get(nombre=kolb_profile)
+        kp = KolbModel.objects.get(nombre=calificar_kolb(porc))
         client = ClientModel.objects.get(pk=client_id)
         client.kolb_profile = kp
         client.save()
         return render(request, 'buscador/home.html', context)
+    return render(request, 'buscador/home.html', context)
 
 @login_required
 def user_profile(request, client_id):
