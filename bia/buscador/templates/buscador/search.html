@@ -18,7 +18,7 @@
           <form action="{% url 'buscador:search' %}" method="post">{% csrf_token %}
             <div class="col-md-7">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="¿Qué estás buscando?">
+                    <input type="text" class="form-control" name="filtro" placeholder="¿Qué estás buscando?">
                     <span class="input-group-btn">
                         <button class="btn blue uppercase bold" type="submit">Buscar</button>
                     </span>
@@ -34,107 +34,28 @@
         <div class="col-md-7">
             <div class="search-container ">
                     {% if results %}
+                    <ul>
+                    {% for result in results %}
+                      <li class="search-item clearfix">
+                          <a href="javascriptt:;">
+                              <img src="{% static 'buscador/pages/img/page_general_search/indet.png'%}" />
+                          </a>
+                          <div class="search-content">
+                              <h2 class="search-title">
+                                  <a href="{% url 'buscador:building' %}">{{result.nombre}}</a>
+                              </h2>
+                              <p class="search-desc"> {{result.descripcion|default:'Este archivo no cuenta con una descripción.' }} </p>
+                          </div>
+                      </li>
+                    {% empty %}
                     <div class="note note-info">
                         <h4 class="block">No se encontraron resultados para tu búsqueda</h4>
                         <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, mattis consectetur purus sit amet eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </p>
                     </div>
+                    {% endfor %}
+                    </ul>
                     {% else %}
-                  <ul>
-                    <li class="search-item clearfix">
-                        <a href="javascriptt:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/01.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">Metronic Search Results</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/1.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">Lorem ipsum dolor</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/02.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">sit amet</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/2.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">consectetur adipiscing</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/03.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">Donec efficitur</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/05.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">mauris quam</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                    <li class="search-item clearfix">
-                        <a href="javascript:;">
-                            <img src="{% static 'buscador/pages/img/page_general_search/5.jpg'%}" />
-                        </a>
-                        <div class="search-content">
-                            <h2 class="search-title">
-                                <a href="javascript:;">volutpat nunc</a>
-                            </h2>
-                            <p class="search-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur pellentesque auctor. Morbi lobortis, leo in tristique scelerisque, mauris quam volutpat nunc </p>
-                        </div>
-                    </li>
-                  </ul>
-                  <div class="search-pagination">
-                      <!-- TODO: Python Pagination -->
-                      <ul class="pagination">
-                          <li class="page-active">
-                              <a href=""> 1 </a>
-                          </li>
-                          <li>
-                              <a href=""> 2 </a>
-                          </li>
-                          <li>
-                              <a href=""> 3 </a>
-                          </li>
-                          <li>
-                              <a href=""> 4 </a>
-                          </li>
-                      </ul>
-                  </div>
+
                     {% endif %}
             </div>
         </div>
@@ -168,7 +89,8 @@
                     <div class="note note-warning">
                         <h4 class="block">¡Atención! Sistema en desarrollo</h4>
                         <p> Actualmente el sistema esta siendo contruido por lo que existen algunas funcionalidades que no están implementadas, tales como filtro sobre el tipo de material o búsqueda según
-                          tags. Esto no quiere decir que no estarán disponibles en futuras versiones del software. </p>
+                          tags. Esto no quiere decir que no estarán disponibles en futuras versiones del software. <br>
+                          </p>
                     </div>
                 </div>
             </div>
