@@ -1,5 +1,5 @@
 from django import forms
-from buscador.models import DataModel
+from buscador.models import DataModel, TypeModel
 
 class DocumentForm(forms.ModelForm):
     username = forms.CharField()
@@ -7,3 +7,10 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = DataModel
         fields = ()
+
+class TypeImageForm(forms.ModelForm):
+    nombre = forms.CharField()
+    image = forms.ImageField(required=False)
+    class Meta:
+        model = TypeModel
+        fields = ('nombre', 'image')

@@ -15,7 +15,7 @@
     <p> En esta pantalla usted posee las siguientes alternativas, redirigirse a la administración de tags, de tipos, de material o bien, omitir estos pasos para posterior.</p>
 </div>
 <a href="{% url 'administracion:tags' %}" class="btn yellow btn-block">Ir al gestor de TAGS</a>
-<a class="btn blue btn-block">Ir al gestor de TIPOS</a>
+<a href="{% url 'administracion:types' %}" class="btn blue btn-block">Ir al gestor de TIPOS</a>
 <a class="btn green btn-block">Ir al gestor de ARCHIVOS</a>
 <a href="{% url 'buscador:home' %}" class="btn red btn-block">Omitir e ir al Inicio</a>
 {% endblock %}

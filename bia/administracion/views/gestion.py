@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from buscador.models import DataModel, TagModel, TypeModel, KolbModel, KolbTagModel
-from administracion.forms import DocumentForm
+from administracion.forms import DocumentForm, TypeImageForm
 import urllib
 
 def get_base_context(request, *args, **kwargs):
@@ -89,4 +89,16 @@ def manager_tag(request):
 
 @login_required
 def manager_type(request):
-    return render(request, 'administracion/crud_types.html')
+    context = get_base_context(request)
+    types = TypeModel.objects.all()
+    context['types'] = types
+    if request.method == "POST":
+        if len(request.POST['nombre']) > 0:
+            form = TypeImageForm(request.POST, request.FILES)
+            print request.FILES
+            if form.is_valid():
+                form.save()
+
+            return render(request, 'administracion/crud_types.html', context)
+        context['error'] = True
+    return render(request, 'administracion/crud_types.html', context)
