@@ -1,7 +1,7 @@
 var FormValidationMd = function() {
 
     var handleValidation1 = function() {
-        // for more info visit the official plugin documentation: 
+        // for more info visit the official plugin documentation:
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#form_sample_1');
         var error1 = $('.alert-danger', form1);
@@ -29,6 +29,7 @@ var FormValidationMd = function() {
             rules: {
                 name: {
                     minlength: 2,
+                    maxlength:20,
                     required: true
                 },
                 email: {
@@ -78,7 +79,7 @@ var FormValidationMd = function() {
                 },
                 'checkboxes1[]': {
                     required: true,
-                    minlength: 2,
+                    minlength: 1,
                 },
                 'checkboxes2[]': {
                     required: true,
@@ -92,7 +93,7 @@ var FormValidationMd = function() {
                 }
             },
 
-            invalidHandler: function(event, validator) { //display error alert on form submit              
+            invalidHandler: function(event, validator) { //display error alert on form submit
                 success1.hide();
                 error1.show();
                 App.scrollTo(error1, -200);
@@ -131,7 +132,7 @@ var FormValidationMd = function() {
     }
 
     var handleValidation2 = function() {
-        // for more info visit the official plugin documentation: 
+        // for more info visit the official plugin documentation:
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#form_sample_2');
         var error1 = $('.alert-danger', form1);
@@ -208,7 +209,7 @@ var FormValidationMd = function() {
                 },
                 'checkboxes1[]': {
                     required: true,
-                    minlength: 2,
+                    minlength: 1,
                 },
                 'checkboxes2[]': {
                     required: true,
@@ -222,7 +223,7 @@ var FormValidationMd = function() {
                 }
             },
 
-            invalidHandler: function(event, validator) { //display error alert on form submit              
+            invalidHandler: function(event, validator) { //display error alert on form submit
                 success1.hide();
                 error1.show();
                 App.scrollTo(error1, -200);
@@ -261,7 +262,7 @@ var FormValidationMd = function() {
     }
 
     var handleValidation3 = function() {
-        // for more info visit the official plugin documentation: 
+        // for more info visit the official plugin documentation:
         // http://docs.jquery.com/Plugins/Validation
         var form1 = $('#form_sample_3');
         var error1 = $('.alert-danger', form1);
@@ -338,7 +339,7 @@ var FormValidationMd = function() {
                 }
             },
 
-            invalidHandler: function(event, validator) { //display error alert on form submit              
+            invalidHandler: function(event, validator) { //display error alert on form submit
                 success1.hide();
                 error1.show();
                 App.scrollTo(error1, -200);
