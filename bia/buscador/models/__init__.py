@@ -4,4 +4,4 @@ from kolb import KolbModel
 from tag import TagModel
 from data import DataModel
 from types import TypeModel
-from relation_entities import KolbTagModel, DataTagModel, DataTypeModel
+from relation_entities import KolbTagModel, DataTagModel

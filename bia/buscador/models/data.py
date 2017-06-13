@@ -14,6 +14,4 @@ class DataModel(models.Model):
     tags = models.ManyToManyField('TagModel', through='DataTagModel',
                                     through_fields=('data', 'tag'),
                                     related_name='tag_files')
-    types = models.ManyToManyField('TypeModel', through='DataTypeModel',
-                                    through_fields=('data', 'data_type'),
-                                    related_name='type_files')
+    types = models.ForeignKey('TypeModel', related_name='datas', null=True, blank=True)

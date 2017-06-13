@@ -37,8 +37,12 @@
                     <ul>
                     {% for result in results %}
                       <li class="search-item clearfix">
-                          <a href="javascriptt:;">
+                          <a href="{% url 'buscador:building' %}">
+                              {% if result.types.image %}
+                              <img src="{{result.types.image.url}}">
+                              {% else %}
                               <img src="{% static 'buscador/pages/img/page_general_search/indet.png'%}" />
+                              {% endif %}
                           </a>
                           <div class="search-content">
                               <h2 class="search-title">
