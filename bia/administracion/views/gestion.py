@@ -2,6 +2,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from buscador.models import DataModel, TagModel, TypeModel, KolbModel, KolbTagModel
+from administracion.forms import DocumentForm
 import urllib
 
 def get_base_context(request, *args, **kwargs):
@@ -9,6 +11,82 @@ def get_base_context(request, *args, **kwargs):
     }
     return base_context
 
+@login_required
 def upload_data(request):
     context = get_base_context(request)
     return render(request, 'administracion/upload.html', context)
+
+@login_required
+def upload_receiver(request):
+    context = get_base_context(request)
+    if request.method == "GET":
+        return redirect('buscador:home')
+    if request.method == "POST":
+        if request.FILES['fullname']:
+            form = DocumentForm(request.POST, request.FILES)
+            if form.is_valid():
+                instance = DataModel(file_path=request.FILES['fullname'], nombre=request.POST['username'], descripcion=request.POST['descripcion'])
+                instance.save()
+                return redirect('administracion:success')
+        context['error'] = True
+        return render(request, 'administracion/upload.html', context)
+
+@login_required
+def upload_success(request):
+    context = get_base_context(request)
+    if request.method == "GET":
+        return render(request, 'administracion/upload_success.html', context)
+    return redirect('buscador:home')
+
+@login_required
+def manager_tag(request):
+    context = get_base_context(request)
+    tags = TagModel.objects.all()
+    context['tags'] = tags
+    if request.method == "POST":
+        name = request.POST['name']
+        try:
+            checkboxes = request.POST['checkboxes1[]']
+            checkboxes = map(int,checkboxes)
+        except:
+            context["error"] = True
+            return render(request, 'administracion/crud_tags.html', context)
+        if name:
+            if len(name) > 0:
+                if len(checkboxes) > 0:
+                    tag = TagModel(nombre=name)
+                    if 'radio1' in request.POST:
+                        relevance = int(request.POST['radio1'])
+                        if TagModel.HIGH_IMPORTANCE == relevance:
+                            tag.relevancia = TagModel.HIGH_IMPORTANCE
+                        if TagModel.MEDIUM_IMPORTANCE == relevance:
+                            tag.relevancia = TagModel.MEDIUM_IMPORTANCE
+                        if TagModel.LOW_IMPORTANCE == relevance:
+                            tag.relevancia = TagModel.LOW_IMPORTANCE
+                    tag.save()
+                    if KolbModel.ASIMILADOR in checkboxes:
+                        asimilador = KolbModel.objects.get(nombre="Asimilador")
+                        middle = KolbTagModel(kolb=asimilador,tag=tag)
+                        middle.save()
+                    if KolbModel.DIVERGENTE in checkboxes:
+                        divergente = KolbModel.objects.get(nombre="Divergente")
+                        middle = KolbTagModel(kolb=divergente,tag=tag)
+                        middle.save()
+                    if KolbModel.ACOMODADOR in checkboxes:
+                        acomodador = KolbModel.objects.get(nombre="Acomodador")
+                        middle = KolbTagModel(kolb=acomodador,tag=tag)
+                        middle.save()
+                    if KolbModel.CONVERGENTE in checkboxes:
+                        convergente = KolbModel.objects.get(nombre="Convergente")
+                        middle = KolbTagModel(kolb=convergente,tag=tag)
+                        middle.save()
+                    return render(request, 'administracion/crud_tags.html', context)
+        context["error"] = True
+        return render(request, 'administracion/crud_tags.html', context)
+
+
+    return render(request, 'administracion/crud_tags.html', context)
+
+@login_required
+def manager_type(request):
+    return render(request, 'administracion/crud_types.html')
