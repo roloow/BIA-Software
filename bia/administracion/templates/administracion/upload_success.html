@@ -1,0 +1,23 @@
+{% extends "administracion/base_page.html" %}
+{% load static %}
+<!-- CSS -->
+{% block plugin_css %}{% endblock %}
+<!-- No variar -->
+{% block title %}Búsqueda de Información Autómatica{% endblock %}
+<!-- Indice de recorrido-->
+{% block breadcrumb %}Administracion > Upload Success{% endblock %}
+<!-- Boton extra de acciones, no tocar -->
+{% block page_actions %}{% endblock %}
+<!-- Contenido -->
+{% block content %}
+<div class="m-heading-1 border-green m-bordered">
+    <h3>Su archivo se ha subido correctamente</h3>
+    <p> En esta pantalla usted posee las siguientes alternativas, redirigirse a la administración de tags, de tipos, de material o bien, omitir estos pasos para posterior.</p>
+</div>
+<a class="btn yellow btn-block">Ir al gestor de TAGS</a>
+<a class="btn blue btn-block">Ir al gestor de TIPOS</a>
+<a class="btn green btn-block">Ir al gestor de ARCHIVOS</a>
+<a href="{% url 'buscador:home' %}" class="btn red btn-block">Omitir e ir al Inicio</a>
+{% endblock %}
+<!-- JavaScript -->
+{% block plugin_js %}{% endblock %}
