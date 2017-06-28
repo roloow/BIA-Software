@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="{% url 'buscador:login' %}" method="post">{% csrf_token %}
-                <h3 class="form-title">Ingresar a tu cuenta <span class="icon-close pull-right exit"></span></h3>
+                <h3 class="form-title">Ingresar a tu cuenta</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
                     <span> Ingresa un usuario y contraseña. </span>
@@ -101,7 +101,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END LOGIN FORM -->
             <!-- BEGIN REGISTRATION FORM -->
             <form class="register-form" action="{% url 'buscador:register' %}" method="post">{% csrf_token %}
-                <h3>Registro de usuario <span class="icon-close pull-right exit"></span></h3>
+                <h3>Registro de usuario </h3>
                 {% if error_registro %}
                 <div class="alert alert-danger">
                   <button class="close" data-close="alert"></button>

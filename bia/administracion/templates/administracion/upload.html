@@ -4,7 +4,10 @@
 {% block plugin_css %}
 <link href="{% static 'buscador/global/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'buscador/global/plugins/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'buscador/global/plugins/bootstrap-select/css/bootstrap-select.min.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'buscador/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'buscador/global/plugins/bootstrap-select/css/bootstrap-select.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'buscador/global/plugins/jquery-multi-select/css/multi-select.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 <!-- No variar -->
 {% block title %}Búsqueda de Información Autómatica{% endblock %}
@@ -121,25 +124,35 @@
                                         <h3>¡Atención!</h3>
                                         <p> Momentaneamente esta parte se encuentra restringida y se permite la categorización en etapas posteriores (Una vez el archivo ya esté subido).</p>
                                     </div>
-                                    <!-- TODO: Para agregar un campo de verificacion mirar Metronic Form Wizzard y cambiar nombres segun eso -->
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Tipo de archivo
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="a1" readonly/>
+                                          <select class="bs-select form-control" data-live-search="true" data-size="8">
+                                            {% for tp in types %}
+                                              <option value="{{tp.pk}}">{{tp.nombre}}</option>
+                                            {% empty %}
+                                              <option disabled>No hay tipos creados</option>
+                                            {% endfor %}
+                                          </select>
                                             <span class="help-block"> </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Tag de archivo
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" name="a2" readonly/>
+                                          <select multiple="multiple" class="multi-select" id="my_multi_select1" name="my_multi_select1[]">
+                                              {% for tag in tags %}
+                                                <option value="{{tag.pk}}">{{tag.nombre}}</option>
+                                              {% empty %}
+                                                <option disabled>No hay tags creados</option>
+                                              {% endfor %}
+                                          </select>
                                             <span class="help-block"> </span>
                                         </div>
                                     </div>
+                                    <br><br><br><br><br><br><br><br>
                                 </div>
                                 <div class="tab-pane" id="tab4">
                                     <h3 class="block">Confirme los datos ingresados</h3>
@@ -166,7 +179,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Tag archivo:</label>
                                         <div class="col-md-4">
-                                            <p class="form-control-static" data-display="a2"> </p>
+                                            <p class="form-control-static" data-display="my_multi_select1[]"> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -201,4 +214,8 @@
 <script src="{% static 'buscador/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'buscador/pages/scripts/form-wizard.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'buscador/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js' %}" type="text/javascript"></script>
+<script src="{% static 'buscador/global/plugins/bootstrap-select/js/bootstrap-select.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'buscador/pages/scripts/components-bootstrap-select.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'buscador/global/plugins/jquery-multi-select/js/jquery.multi-select.js' %}" type="text/javascript"></script>
+<script src="{% static 'buscador/pages/scripts/components-multi-select.min.js' %}" type="text/javascript"></script>
 {% endblock %}

@@ -48,7 +48,7 @@ def register(request):
         client.save()
         login(request, user)
         response = redirect('buscador:kolb')
-        response['Location'] += '?' + urllib.urlencode({'client_id'})
+        response['Location'] += '?' + urllib.urlencode({'client_id':client.pk})
         return response
 
 # Kolb Form
