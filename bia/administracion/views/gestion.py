@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from buscador.models import DataModel, TagModel, TypeModel, KolbModel, KolbTagModel, DataTagModel
+from buscador.models import DataModel, TagModel, TypeModel, KolbModel, KolbTagModel, DataTagModel, ANN
 from administracion.forms import DocumentForm, TypeImageForm
 import urllib
 
@@ -126,3 +126,28 @@ def manager_type(request):
             return render(request, 'administracion/crud_types.html', context)
         context['error'] = True
     return render(request, 'administracion/crud_types.html', context)
+
+@login_required
+def external(request):
+    context = get_base_context(request)
+    active = False
+    anns = ANN.objects.all()
+    if len(anns) > 0:
+        ann = anns[0]
+        active = ann.active
+    print active
+    context['ann'] = active
+    return render(request, 'administracion/external_upload.html', context)
+
+@login_required
+def external_get(request):
+    context = get_base_context(request)
+    context['done'] = True
+    active = False
+    anns = ANN.objects.all()
+    if len(anns) > 0:
+        ann = anns[0]
+        active = ann.active
+    print active
+    context['ann'] = active
+    return render(request, 'administracion/external_upload.html', context)
