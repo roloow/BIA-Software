@@ -10,4 +10,8 @@ urlpatterns = [
     url(r'building$', views.building, name='building'),
     url(r'user/(?P<client_id>\d+)/profile$', views.user_profile, name='profile'),
     url(r'search$', views.search_home, name='search'),
+    url(r'ann$', views.ann, name='ann'),
+    url(r'ann/activate$', views.activate_ann, name='activate'),
+    url(r'ann/deactivate$', views.deactivate_ann, name='deactivate'),
+    url(r'ann/train$', views.train_ann, name='train')
 ]

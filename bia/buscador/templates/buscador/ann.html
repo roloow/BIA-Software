@@ -1,0 +1,44 @@
+{% extends "buscador/base_page.html" %}
+{% load static %}
+<!-- CSS -->
+{% block plugin_css %}{% endblock %}
+<!-- No variar -->
+{% block title %}Búsqueda de Información Autómatica{% endblock %}
+<!-- Indice de recorrido-->
+{% block breadcrumb %}Red Neuronal{% endblock %}
+<!-- Boton extra de acciones, no tocar -->
+{% block page_actions %}{% endblock %}
+<!-- Contenido -->
+{% block content %}
+
+<div class="col-md-12">
+  <div class="col-md-6">
+    <h4>Estado: {% if status %} <label class="label label-success">Activo</label>{% else %} <label class="label label-danger">Desactivado</label> {% endif %}</h4>
+    <p>La red neuronal se basa en proporcionarle al sistema una capacidad de automatización donde los datos que esten guardados generarán una base sobre que tipo de archivo y los tags que el archivo supondría tener. Se aconseja tener una gran cantidad de datos antes de activar esta funcionalidad</p>
+    <div class="col-md-12">
+      <label class="col-md-6">Total de archivos en el sistema:</label>
+      <span class="col-md-6">{{data_amount}}</span>
+    </div>
+    <div class="col-md-12">
+      <label class="col-md-6">Precisión estimada:</label>
+      <span class="col-md-6">{{data_amount}}%</span>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img src='{% static "buscador\pages\img\page_general_search\red.png " %}' width="700">
+  </div>
+</div>
+<div class="col-md-12">
+  <h3>Acciones</h3>
+  {% if status %}
+  <a class="btn btn-default" href="{% url 'buscador:deactivate' %}">Desactivar</a>
+  {% else %}
+  <a class="btn btn-default" href="{% url 'buscador:activate' %}">Activar</a>
+  {% endif %}
+  <a class="btn btn-default" href="{% url 'buscador:train' %}">Entrenar</a>
+</div>
+
+
+{% endblock %}
+<!-- JavaScript -->
+{% block plugin_js %}{% endblock %}

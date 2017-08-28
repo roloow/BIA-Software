@@ -28,11 +28,16 @@ def upload_receiver(request):
     if request.method == "POST":
         if request.FILES['fullname']:
             form = DocumentForm(request.POST, request.FILES)
+            print request.POST
+            print request.POST['my_multi_select1[]'][0],request.POST['my_multi_select1[]'][1]
+            print request.POST
             if form.is_valid():
                 tags = None
                 typed = None
                 if 'my_multi_select1[]' in request.POST.keys():
                     tags = map(int,request.POST['my_multi_select1[]'])
+                    print tags
+                    print  request.POST['my_multi_select1[]']
                 if 'a1' in request.POST.keys():
                     typed = int(request.POST['a1'])
                 instance = DataModel(file_path=request.FILES['fullname'], nombre=request.POST['username'], descripcion=request.POST['descripcion'])
