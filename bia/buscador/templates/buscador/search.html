@@ -17,8 +17,35 @@
         <div class="row">
           <form action="{% url 'buscador:search' %}" method="post">{% csrf_token %}
             <div class="col-md-7">
+              <div class="form-group form-md-radios">
+                  <label for="form_control_1">Búsqueda por </label>
+                  <div class="md-radio-list col-md-12">
+                      <div class="md-radio col-md-4">
+                          <input type="radio" id="checkbox112_6" name="radio1" value="2" class="md-radiobtn">
+                          <label for="checkbox112_6">
+                              <span></span>
+                              <span class="check"></span>
+                              <span class="box"></span> Nombre </label>
+                      </div>
+                      <div class="md-radio col-md-4">
+                          <input type="radio" id="checkbox112_7" name="radio1" value="1" class="md-radiobtn">
+                          <label for="checkbox112_7">
+                              <span></span>
+                              <span class="check"></span>
+                              <span class="box"></span> Tags </label>
+                      </div>
+                      <div class="md-radio col-md-4">
+                          <input type="radio" id="checkbox112_8" name="radio1" value="0" class="md-radiobtn">
+                          <label for="checkbox112_8">
+                              <span></span>
+                              <span class="check"></span>
+                              <span class="box"></span> Tipos de archivo </label>
+                      </div>
+                  </div>
+              </div>
                 <div class="input-group">
                     <input type="text" class="form-control" name="filtro" placeholder="¿Qué estás buscando?">
+                    <input type="hidden" name="perfil" value="{{request.user.profile.kolb_profile.nombre}}">
                     <span class="input-group-btn">
                         <button class="btn blue uppercase bold" type="submit">Buscar</button>
                     </span>
@@ -60,6 +87,12 @@
                     </ul>
                     {% else %}
 
+                    {% endif %}
+                    {% if notfound %}
+                    <div class="note note-info">
+                        <h4 class="block">No se encontraron resultados para tu búsqueda</h4>
+                        <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, mattis consectetur purus sit amet eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </p>
+                    </div>
                     {% endif %}
             </div>
         </div>

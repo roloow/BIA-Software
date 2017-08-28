@@ -2,7 +2,7 @@
 from .common import get_base_context
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from buscador.models import DataModel, ANN
+from buscador.models import DataModel, ANN, TypeModel, DataTagModel
 
 @login_required
 def home(request):
@@ -23,8 +23,26 @@ def search_home(request):
     if request.method == "GET":
         return render(request, 'buscador/search.html', context)
     if request.method == "POST":
-        results = DataModel.objects.filter(nombre__icontains=request.POST['filtro'])
+        results = []
+        if 'radio1' in request.POST.keys():
+            val =  int(request.POST['radio1'])
+            if val == 0:
+                results = DataModel.objects.filter(types__nombre__icontains=request.POST['filtro'])
+            elif val == 1:
+                results_tags = DataTagModel.objects.filter(tag__nombre__icontains=request.POST['filtro'])
+                for i in range(len(results_tags)):
+                    datatag = results_tags[i]
+                    print datatag.data
+                    results.append(datatag.data)
+            else:
+                results = DataModel.objects.filter(nombre__icontains=request.POST['filtro'])
+        else:
+            results = DataModel.objects.filter(nombre__icontains=request.POST['filtro'])
         context['results'] = results
+        if len(results) == 0:
+            context['notfound'] = True
+        if len(results) > 0:
+            context['notfound'] = False
         return render(request, 'buscador/search.html', context)
 
 @login_required
