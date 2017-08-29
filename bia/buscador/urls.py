@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'ann$', views.ann, name='ann'),
     url(r'ann/activate$', views.activate_ann, name='activate'),
     url(r'ann/deactivate$', views.deactivate_ann, name='deactivate'),
-    url(r'ann/train$', views.train_ann, name='train')
+    url(r'ann/train$', views.train_ann, name='train'),
+    url(r'search/view/(?P<data_id>\d+)$', views.fileview, name='view'),
 ]

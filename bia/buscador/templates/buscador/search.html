@@ -64,7 +64,7 @@
                     <ul>
                     {% for result in results %}
                       <li class="search-item clearfix">
-                          <a href="{% url 'buscador:building' %}">
+                          <a href="{% url 'buscador:view' result.pk %}">
                               {% if result.types.image %}
                               <img src="{{result.types.image.url}}">
                               {% else %}
@@ -73,9 +73,8 @@
                           </a>
                           <div class="search-content">
                               <h2 class="search-title">
-                                  <a href="{% url 'buscador:building' %}">{{result.nombre}}</a>
+                                  <a href="{% url 'buscador:view' result.pk %}">{{result.nombre}}</a>
                               </h2>
-                              <p class="search-desc"> {{result.descripcion|default:'Este archivo no cuenta con una descripción.' }} </p>
                           </div>
                       </li>
                     {% empty %}

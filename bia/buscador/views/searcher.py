@@ -21,7 +21,10 @@ def building(request):
 def search_home(request):
     context= get_base_context(request)
     if request.method == "GET":
-        return render(request, 'buscador/search.html', context)
+        if request.user.profile.kolb_profile:
+            return render(request, 'buscador/search.html', context)
+        else:
+            return redirect('buscador:home')
     if request.method == "POST":
         results = []
         if 'radio1' in request.POST.keys():
@@ -62,6 +65,13 @@ def ann(request):
         context['data_amount'] = data_amount
         context['status'] = status
         return render(request, 'buscador/ann.html', context)
+
+@login_required
+def fileview(request, data_id):
+    context = get_base_context(request)
+    data = DataModel.objects.get(pk=data_id)
+    context['data'] = data
+    return render(request, 'buscador/fileview.html', context)
 
 @login_required
 def activate_ann(request):
